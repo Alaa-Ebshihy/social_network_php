@@ -29,6 +29,11 @@
 		    		<div class="info">
 		    			@lang('fields.posted_by', ['name' => $post->user->user_name, 'date' => $post->created_at])
 		    		</div>
+		    		<div class="interaction">
+		    			@if(Auth::user() == $post->user)
+		    				<a href="{{ route('deletepost', ['post_id' => $post->id]) }}">@lang('fields.delete_post')</a>
+		    			@endif
+		    		</div>
 		    	</article>
 	    	@endforeach
 

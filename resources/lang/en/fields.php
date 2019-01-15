@@ -21,4 +21,6 @@ return [
     'post_placeholder' => 'Your Post',
     'other_posts' => 'What other people say...',
     'posted_by' => 'Posted by :name on :date',
+    'delete_post' => 'Delete',
+
 ];
