@@ -32,7 +32,8 @@ Route::get('logout', [
 
 Route::get('/dashboard', [
     'uses' => 'PostController@getPosts',
-    'as' => 'dashboard'
+    'as' => 'dashboard',
+    'middleware' => 'auth'
 ]);
 
 Route::post('/createpost', [
