@@ -35,7 +35,7 @@
         </div>
         <div class="col-md-6">
             <h3>@lang('fields.signin')</h3>
-            <form action="#">
+            <form action="{{ route('signin') }}" method="post">
                 <div class="form-group">
                     <label for="email">@lang('fields.email')</label>
                     <input class="form-control" type="text" name="email" id="email" value="{{ Request::old('email') }}">
