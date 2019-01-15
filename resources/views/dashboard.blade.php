@@ -38,7 +38,9 @@
                     <p class="lead">{{ $post->body }}</p>
                     <hr class="my-4">
                     <p>@lang('fields.posted_by', ['name' => $post->user->user_name, 'date' => $post->created_at])</p>
-                    <a class="btn btn-primary btn-lg" href="{{ route('deletepost', ['post_id' => $post->id]) }}" role="button">@lang('fields.delete_post')</a>
+                    @if(Auth::user() == $post->user)
+                        <a class="btn btn-primary btn-lg" href="{{ route('deletepost', ['post_id' => $post->id]) }}" role="button">@lang('fields.delete_post')</a>
+                    @endif
                 </div>
             @endforeach
 

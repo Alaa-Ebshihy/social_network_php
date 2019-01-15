@@ -24,12 +24,14 @@ Class PostController extends Controller
 
 		$post = new Post();
 		$post->body = $request['body'];
-        $message = 'There was an error!';
+        $message = __('messages.error_exists');
+        $message_type = __('fields.error');
         if( $request->user()->posts()->save($post)) {
-            $message = "Post successfully created.";
+            $message = __('messages.post_success');
+            $message_type = '';
         }
 
-        return redirect()->route('dashboard') -> with(['message' => $message]);
+        return redirect()->route('dashboard') -> with(['message' => $message, 'message_type' => $message_type]);
 	}
 
     public function getDeletePost($post_id)

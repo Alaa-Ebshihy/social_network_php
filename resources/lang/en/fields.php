@@ -24,5 +24,6 @@ return [
     'posted_by' => 'Posted by :name on :date',
     'delete_post' => 'Delete',
     'logout' => 'Logout',
+    'error' => 'error',
 
 ];

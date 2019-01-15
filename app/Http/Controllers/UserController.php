@@ -43,7 +43,9 @@ Class UserController extends Controller
         if (Auth::attempt(['email' => $request['signin_email'], 'password' => $request['signin_password']])) {
             return redirect()->route('dashboard');
         }
-        return redirect()->back();
+        $message = __('messsages.incorrect_email_pass');
+        $message_type = __('fields.error');
+        return redirect()->back()->with(['message' => $message, 'message_type' => $message_type]);
     }
 
     public function getLogout()

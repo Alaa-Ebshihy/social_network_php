@@ -6,7 +6,7 @@
     </ul>
 @endif
 @if(Session::has('message'))
-    <div class="alert alert-success" role="alert">
+    <div class="alert alert-{{ Session::get('message_type') == 'error'? 'danger' : 'success' }}" role="alert">
         {{Session::get('message')}}
     </div>
 @endif
