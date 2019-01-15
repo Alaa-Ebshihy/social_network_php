@@ -14,4 +14,9 @@ return [
     'user_name' => 'User Name',
 	'password' => 'Password',
 	'submit' => 'Submit',
+
+    //keys for dashboard
+    'post_header' => 'What do you have to say?',
+    'create_post_btn' => 'Create Post',
+    'post_placeholder' => 'Your Post',
 ];
