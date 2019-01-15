@@ -25,9 +25,10 @@ Route::post('/signin', [
     'as' => 'signin'
 ]);
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::get('/dashboard', [
+    'uses' => 'PostController@getPosts',
+    'as' => 'dashboard'
+]);
 
 Route::post('/createpost', [
     'uses' => 'PostController@postCreatePost',

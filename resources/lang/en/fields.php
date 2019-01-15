@@ -19,4 +19,6 @@ return [
     'post_header' => 'What do you have to say?',
     'create_post_btn' => 'Create Post',
     'post_placeholder' => 'Your Post',
+    'other_posts' => 'What other people say...',
+    'posted_by' => 'Posted by :name on :date',
 ];

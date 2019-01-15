@@ -20,4 +20,22 @@
        	</div>
     </section>
 
+    <section class="row posts">
+    	<div class="col-md-6 col-md-offset-3">
+	    	<header><h3>@lang('fields.other_posts')</h3></header>
+	    	@foreach($posts as $post)
+		    	<article class="post">
+		    		<p>{{ $post->body }}</p>
+		    		<div class="info">
+		    			@lang('fields.posted_by', ['name' => $post->user->user_name, 'date' => $post->created_at])
+		    		</div>
+		    	</article>
+	    	@endforeach
+
+			{{ $posts->links() }}
+
+    	</div>
+
+    </section>
+
 @endsection

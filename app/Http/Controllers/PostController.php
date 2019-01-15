@@ -8,6 +8,13 @@ use Illuminate\Support\Facades\Auth;
 
 Class PostController extends Controller
 {
+
+    public function getPosts()
+    {
+        $posts = Post::orderBy('created_at', 'desc')->paginate(3);
+        return view('dashboard', ['posts' => $posts]);
+    }
+
 	public function postCreatePost(Request $request)
 	{
 
