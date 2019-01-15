@@ -12,7 +12,7 @@ Class PostController extends Controller
     public function getPosts()
     {
         $posts = Post::orderBy('created_at', 'desc')->paginate(3);
-        return view('dashboard', ['posts' => $posts]);
+        return view('dashboard', ['posts' => $posts, 'user' => Auth::user()]);
     }
 
 	public function postCreatePost(Request $request)

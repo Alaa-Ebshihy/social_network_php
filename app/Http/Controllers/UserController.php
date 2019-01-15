@@ -36,11 +36,11 @@ Class UserController extends Controller
     public function postSignIn(Request $request)
 	{
         $this->validate($request, [
-            'email' => 'required',
-            'password' => 'required'
+            'signin_email' => 'required',
+            'signin_password' => 'required'
         ]);
 
-        if (Auth::attempt(['email' => $request['email'], 'password' => $request['password']])) {
+        if (Auth::attempt(['email' => $request['signin_email'], 'password' => $request['signin_password']])) {
             return redirect()->route('dashboard');
         }
         return redirect()->back();

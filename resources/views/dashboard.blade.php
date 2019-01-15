@@ -4,6 +4,16 @@
     @lang('fields.welcome_title')
 @endsection
 
+@section('left_header')
+    @lang('fields.welcome_user', ['name' => $user->first_name])
+@endsection
+
+@section('right_header')
+        <form class="form-inline" action="{{ route('logout') }}" method="get">
+            <button class="btn btn-primary" type="submit">@lang('fields.logout')</button>
+        </form>
+@endsection
+
 @section('content')
 	@include('includes.message-block')
 
@@ -23,19 +33,14 @@
     <section class="row posts">
     	<div class="col-md-6 col-md-offset-3">
 	    	<header><h3>@lang('fields.other_posts')</h3></header>
-	    	@foreach($posts as $post)
-		    	<article class="post">
-		    		<p>{{ $post->body }}</p>
-		    		<div class="info">
-		    			@lang('fields.posted_by', ['name' => $post->user->user_name, 'date' => $post->created_at])
-		    		</div>
-		    		<div class="interaction">
-		    			@if(Auth::user() == $post->user)
-		    				<a href="{{ route('deletepost', ['post_id' => $post->id]) }}">@lang('fields.delete_post')</a>
-		    			@endif
-		    		</div>
-		    	</article>
-	    	@endforeach
+            @foreach($posts as $post)
+                <div class="jumbotron">
+                    <p class="lead">{{ $post->body }}</p>
+                    <hr class="my-4">
+                    <p>@lang('fields.posted_by', ['name' => $post->user->user_name, 'date' => $post->created_at])</p>
+                    <a class="btn btn-primary btn-lg" href="{{ route('deletepost', ['post_id' => $post->id]) }}" role="button">@lang('fields.delete_post')</a>
+                </div>
+            @endforeach
 
 			{{ $posts->links() }}
 

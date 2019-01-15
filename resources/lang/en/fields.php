@@ -16,6 +16,7 @@ return [
 	'submit' => 'Submit',
 
     //keys for dashboard
+    'welcome_user' => 'Welcome :name',
     'post_header' => 'What do you have to say?',
     'create_post_btn' => 'Create Post',
     'post_placeholder' => 'Your Post',
