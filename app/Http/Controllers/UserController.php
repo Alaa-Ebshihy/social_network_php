@@ -53,4 +53,34 @@ Class UserController extends Controller
         Auth::logout();
         return redirect()->route('login');
     }
+
+    public function postUpdateAccount(Request $request)
+    {
+
+
+        $user = Auth::user();
+
+        if($request->filled('email')) {
+            $user->email = $request['email'];
+            $this->validate($request, [
+                'email' => 'email|unique:users',
+            ]);
+        }
+
+        if($request->filled('first_name')) {
+            $user->first_name = $request['first_name'];
+        }
+        if($request->filled('last_name')) {
+            $user->last_name = $request['last_name'];
+        }
+        if($request->filled('user_name')) {
+            $user->user_name = $request['user_name'];
+        }
+        if($request->filled('password')) {
+            $user->password = $request['password'];
+        }
+        $user->update();
+
+        return redirect()->route('myaccount')->with(['user' => Auth::user()]);
+    }
 }

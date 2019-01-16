@@ -30,6 +30,11 @@ Route::get('logout', [
     'as' => 'logout'
 ]);
 
+Route::post('/updateaccount', [
+    'uses' => 'UserController@postUpdateAccount',
+    'as' => 'updateaccount'
+]);
+
 Route::get('/dashboard', [
     'uses' => 'PostController@getPosts',
     'as' => 'dashboard',
@@ -45,4 +50,10 @@ Route::get('/deletepost/{post_id}', [
 	'uses' => 'PostController@getDeletePost',
 	'as' => 'deletepost',
 	'middleware' => 'auth'
+]);
+
+Route::get('/myaccount', [
+    'uses' => 'PostController@getMyAccount',
+    'as' => 'myaccount',
+    'middleware' => 'auth'
 ]);

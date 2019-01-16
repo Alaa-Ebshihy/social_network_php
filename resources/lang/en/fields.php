@@ -25,5 +25,9 @@ return [
     'delete_post' => 'Delete',
     'logout' => 'Logout',
     'error' => 'error',
+    'home' => 'Home',
+    'my_account' => 'My Account',
+    'account_details' => 'Account Details',
+    'save' => 'Save Changes',
 
 ];

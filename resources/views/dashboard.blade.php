@@ -8,6 +8,10 @@
     @lang('fields.welcome_user', ['name' => $user->first_name])
 @endsection
 
+@section('middle_header')
+    @include('includes.middle-header')
+@endsection
+
 @section('right_header')
         <form class="form-inline" action="{{ route('logout') }}" method="get">
             <button class="btn btn-primary" type="submit">@lang('fields.logout')</button>

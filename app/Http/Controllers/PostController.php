@@ -43,4 +43,9 @@ Class PostController extends Controller
         $post->delete();
         return redirect()->route('dashboard') -> with(['message' => 'Successfully deleted']);
     }
+
+    public function getMyAccount()
+    {
+        return view('myaccount', ['user' => Auth::user()]);
+    }
 }
